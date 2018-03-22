@@ -71,10 +71,10 @@ public class BRConstants {
     public static final String FEE_KB_PREFS = "feeKb";
     public static final String ECONOMY_FEE_KB_PREFS = "EconomyFeeKb";
     public static final String LITTLE_CIRCLE = "\u2022";
-    public static String SUPPORT_EMAIL = "support@digibyte.io";
+    public static String SUPPORT_EMAIL = "rumhocker@deutsche-emark.de";
 
-    public static final int ONE_BITCOIN = 100000000;
-    public static final int HUNDRED_BITS = 10000000;
+    public static final int ONE_BITCOIN = 1000000;
+    public static final int HUNDRED_BITS = 100000;
 
 //    /**
 //     * BRWalletManager
@@ -109,8 +109,8 @@ public class BRConstants {
     public static final int CURRENT_UNIT_MBITS = 1;
     public static final int CURRENT_UNIT_BITCOINS = 2;
 
-    public static final String bitcoinLowercase = "\u018A";
-    public static final String bitcoinUppercase = "\u018A";
+    public static final String bitcoinLowercase = "dem";
+    public static final String bitcoinUppercase = "DEM";
 
     public static final long PASS_CODE_TIME_LIMIT = TimeUnit.MILLISECONDS.convert(6, TimeUnit.DAYS);
 

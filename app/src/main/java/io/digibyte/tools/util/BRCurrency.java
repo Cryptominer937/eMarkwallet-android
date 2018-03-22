@@ -56,7 +56,7 @@ public class BRCurrency {
         String symbol = null;
         decimalFormatSymbols = currencyFormat.getDecimalFormatSymbols();
       int decimalPoints = 0;
-        if (Objects.equals(isoCurrencyCode, "DGB")) {
+        if (Objects.equals(isoCurrencyCode, "DEM")) {
             symbol = BRExchange.getBitcoinSymbol(app);
         } else {
             try {
@@ -70,8 +70,8 @@ public class BRCurrency {
         decimalFormatSymbols.setCurrencySymbol(symbol);
 //        currencyFormat.setMaximumFractionDigits(decimalPoints);
         currencyFormat.setGroupingUsed(true);
-        if (Objects.equals(isoCurrencyCode, "DGB")){
-            currencyFormat.setMaximumFractionDigits(BRSharedPrefs.getCurrencyUnit(app) == BRConstants.CURRENT_UNIT_BITCOINS ? 8 : 2);
+        if (Objects.equals(isoCurrencyCode, "DEM")){
+            currencyFormat.setMaximumFractionDigits(BRSharedPrefs.getCurrencyUnit(app) == BRConstants.CURRENT_UNIT_BITCOINS ? 6 : 2);
         } else {
             currencyFormat.setMaximumFractionDigits(decimalPoints);
         }
@@ -83,7 +83,7 @@ public class BRCurrency {
 
     public static String getSymbolByIso(Context app, String iso) {
         String symbol;
-        if (Objects.equals(iso, "DGB")) {
+        if (Objects.equals(iso, "DEM")) {
             String currencySymbolString = BRConstants.bitcoinLowercase;
             if (app != null) {
                 int unit = BRSharedPrefs.getCurrencyUnit(app);
@@ -114,7 +114,7 @@ public class BRCurrency {
 
     //for now only use for BTC and Bits
     public static String getCurrencyName(Context app, String iso) {
-        if (Objects.equals(iso, "DGB")) {
+        if (Objects.equals(iso, "DEM")) {
             if (app != null) {
                 int unit = BRSharedPrefs.getCurrencyUnit(app);
                 switch (unit) {
@@ -123,7 +123,7 @@ public class BRCurrency {
                     case BRConstants.CURRENT_UNIT_MBITS:
                         return "MBits";
                     case BRConstants.CURRENT_UNIT_BITCOINS:
-                        return "DGB";
+                        return "DEM";
                 }
             }
         }
@@ -131,10 +131,10 @@ public class BRCurrency {
     }
 
     public static int getMaxDecimalPlaces(String iso) {
-        if (Utils.isNullOrEmpty(iso)) return 8;
+        if (Utils.isNullOrEmpty(iso)) return 6;
 
-        if (iso.equalsIgnoreCase("DGB")) {
-            return 8;
+        if (iso.equalsIgnoreCase("DEM")) {
+            return 6;
         } else {
             Currency currency = Currency.getInstance(iso);
             return currency.getDefaultFractionDigits();
