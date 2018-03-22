@@ -139,7 +139,7 @@ public class BRActivity extends Activity {
                             else if (BRBitId.isBitId(result))
                                 BRBitId.signBitID(BRActivity.this, result, null);
                             else
-                                Log.e(TAG, "onActivityResult: not bitcoin address NOR bitID");
+                                Log.e(TAG, "onActivityResult: not eMark address NOR bitID");
                         }
                     }, 500);
 

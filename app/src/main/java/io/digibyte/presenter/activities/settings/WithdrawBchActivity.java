@@ -79,7 +79,7 @@ public class WithdrawBchActivity extends BRActivity {
         }
         long satoshis = BRWalletManager.getBCashBalance(pubkey);
         BigDecimal amount = BRExchange.getBitcoinForSatoshis(this, new BigDecimal(satoshis));
-        String balance = BRCurrency.getFormattedCurrencyString(this, "DGB", amount);
+        String balance = BRCurrency.getFormattedCurrencyString(this, "DEM", amount);
         description.setText(String.format(getString(R.string.BCH_body), balance));
 
         txHash.setOnClickListener(new View.OnClickListener() {

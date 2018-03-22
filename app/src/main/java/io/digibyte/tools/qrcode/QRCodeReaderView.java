@@ -290,7 +290,8 @@ public class QRCodeReaderView extends SurfaceView
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
             // this device has a front camera
             return true;
-        } else {
+        }
+        else {
             // this device has any camera
             return getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
         }
