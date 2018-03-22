@@ -166,17 +166,32 @@ public class BRApiManager {
     }
 
 
+//    public static JSONArray fetchRates(Activity activity) {
+//        String jsonString = urlGET(activity, "https://" + "deutsche-emark.de/api" + "/rates.php");
+//        JSONArray jsonArray = null;
+//        if (jsonString == null) return null;
+//        try {
+//            jsonArray = new JSONArray(jsonString);
+//
+//        } catch (JSONException ignored) {
+//        }
+//        return jsonArray;
+//    }
     public static JSONArray fetchRates(Activity activity) {
-        String jsonString = urlGET(activity, "https://" + DigiByte.HOST + "/rates.php");
+        String jsonString = urlGET(activity, "https://deutsche-emark.de/api/rates.php");
+
         JSONArray jsonArray = null;
         if (jsonString == null) return null;
         try {
-            jsonArray = new JSONArray(jsonString);
+            JSONObject obj = new JSONObject(jsonString);
 
-        } catch (JSONException ignored) {
+            jsonArray = obj.getJSONArray("data");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return jsonArray;
     }
+
 
     public static JSONArray backupFetchRates(Activity activity) {
         String jsonString = urlGET(activity, "https://bitpay.com/rates");
@@ -195,7 +210,7 @@ public class BRApiManager {
 
 
     public static void updateFeePerKb(Context app) {
-        String jsonString = urlGET(app, "https://" + DigiByte.HOST + "/fee-per-kb");
+        String jsonString = urlGET(app, "https://api.deutsche-emark.com/fee-kb.php");
         if (jsonString == null || jsonString.isEmpty()) {
             Log.e(TAG, "updateFeePerKb: failed to update fee, response string: " + jsonString);
             return;
